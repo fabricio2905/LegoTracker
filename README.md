@@ -1,59 +1,95 @@
-# LegotrackerAppFinal
+# LEGOTracker
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
 
-## Development server
+## 📝 Resumo do Projeto
+O LEGOTracker é uma aplicação web desenvolvida para auxiliar entusiastas de LEGO a gerenciar e acompanhar o progresso de suas montagens. Ele permite aos usuários visualizar uma lista de montagens, adicionar novas, e simular a exclusão de itens diretamente na interface. Futuramente, o sistema será expandido para incluir funcionalidades completas de edição e persistência de dados via API.
 
-To start a local development server, run:
+## 👥 Integrantes
+Fabrício Zago Horvat
 
+Andre Silva Almeida
+
+
+## 🛠️ Tecnologias Utilizadas
+Frontend (Angular):
+- Angular CLI
+- TypeScript
+- CSS
+- Angular Router
+- HttpClientModule
+
+Backend (Laravel)
+- Laravel Framework
+- PHP
+- MySQL
+- Composer
+
+
+## 🚀 Como Rodar o Projeto
+Este projeto é composto por duas partes: o frontend (Angular) e o backend (Laravel). Ambos precisam ser configurados e iniciados separadamente.
+
+## ⚙️ Configuração e Execução do Backend (API Laravel)
+Pré-requisitos:
+- PHP (versão 8.2 ou superior recomendada)
+- Composer
+- MySQL Server (ou outro banco de dados compatível)
+
+1. Clonar o Repositório do Backend:
 ```bash
-ng serve
+git clone https://github.com/fabricio2905/LegoTracker.git
+cd legotracker-api
+```
+2. Instalar Dependências do Composer:
+```bash
+composer install
+```
+3. Configurar o Arquivo de Ambiente (.env):
+Crie uma cópia do arquivo de exemplo:
+```bash
+cp .env.example .env
+```
+4. Abra o arquivo .env recém-criado em um editor de texto.
+Gere a chave da aplicação:
+```bash
+php artisan key:generate
+```
+5. Configure as credenciais do seu banco de dados MySQL:
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=legotracker_db # Crie este banco de dados no seu MySQL
+DB_USERNAME=root         # Seu usuário do MySQL
+DB_PASSWORD=sua_senha  
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Importante: Crie o banco de dados legotracker_db no seu servidor MySQL.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+## Rodar as Migrações do Banco de Dados:
 ```bash
-ng generate component component-name
+php artisan migrate:fresh 
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
+## Iniciar o Servidor Laravel:
 ```bash
-ng generate --help
+php artisan serve
 ```
+Mantenha este terminal aberto, pois ele executa o servidor backend.
 
-## Building
-
-To build the project run:
-
+## Iniciar o Servidor de Desenvolvimento Angular
+Em outro terminal:
 ```bash
-ng build
+npm install
+ng serve --open
 ```
+Isso abrirá a aplicação no seu navegador (geralmente em http://localhost:4200)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🔑 Credenciais de Acesso
+- Usuário: admin
+- Senha: 123456
 
-## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Um pequeno exemplo de como ficou a tela de listagem com alguns cadastros:
+<img width="1917" height="906" alt="image" src="https://github.com/user-attachments/assets/55b21b5b-5996-425d-9af8-dad23dcd086b" />
