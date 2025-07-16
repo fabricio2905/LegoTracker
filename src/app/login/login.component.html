@@ -1,0 +1,28 @@
+<div class="login-container">
+  <div class="card"> 
+    <div class="logo-section">
+      <span class="logo-icon">&#129513;</span> 
+      <div class="app-title">LEGOTRacker</div>
+      <div class="subtitle">Faça login para acompanhar suas montagens LEGO</div>
+    </div>
+
+    <form (ngSubmit)="onLogin()">
+      <div class="form-field"> 
+        <label for="username">Usuário</label> 
+        <input id="username" type="text" placeholder="Digite seu usuário" [(ngModel)]="username" name="username" required>
+      </div>
+
+      <div class="form-field"> 
+        <label for="password">Senha</label> 
+        <input id="password" type="password" placeholder="Digite sua senha" [(ngModel)]="password" name="password" required>
+      </div>
+
+      <button type="submit" class="app-button">Entrar</button>
+    </form>
+
+    <div class="login-info">
+      <p>Usuário: <strong>admin</strong></p>
+      <p>Senha: <strong>123456</strong></p>
+    </div>
+  </div>
+</div>

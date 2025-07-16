@@ -1,0 +1,61 @@
+<div class="home-wrapper">
+  <header class="app-header">
+    <div class="header-left">
+      <span class="header-logo">&#129513;</span>
+      <span class="header-title">LEGO Tracker</span>
+    </div>
+    <div class="header-right">
+    </div>
+  </header>
+
+  <div class="main-content">
+    <div class="controls-section">
+      <div class="filter-group">
+        <h2 class="section-title">Minhas Montagens</h2>
+        <select class="status-filter" [(ngModel)]="selectedStatus" (change)="onStatusChange()">
+          <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+        </select>
+      </div>
+      <button class="new-montagem-button" (click)="onNovaMontagem()">+ Nova Montagem</button>
+    </div>
+
+    <div class="montages-grid">
+      <div class="montage-card" *ngFor="let montagem of displayMontagens">
+        <div class="card-image-placeholder">
+          <img class="responsive-image" [src]="montagem.url_imagem || 'https://placehold.co/300x200/e0e0e0/ffffff?text=Imagem'" alt="Imagem da Montagem">
+        </div>
+        <div class="card-content">
+          <div class="card-status-tag" [style.backgroundColor]="getCorStatus(montagem.status)">
+            {{ montagem.status }}
+          </div>
+          <h3 class="card-title">{{ montagem.nome }}</h3>
+          <p class="card-description">{{ montagem.descricao }}</p>
+          <div class="card-progress">
+            <span class="progress-text">Progresso: {{ montagem.progresso_atual }} / {{ montagem.progresso_total }} peças</span>
+            <div class="progress-bar-container">
+              <div class="progress-bar" [style.width.%]="getProgressoPorcentagem(montagem.progresso_atual, montagem.progresso_total)" [style.backgroundColor]="getCorStatus(montagem.status)"></div>
+            </div>
+            <span class="progress-percentage">{{ getProgressoPorcentagem(montagem.progresso_atual, montagem.progresso_total) | number:'1.0-0' }}% concluído</span>
+          </div>
+
+          <div class="card-actions">
+            <div class="status-change-group">
+              <label for="status-{{montagem.id}}">Alterar Status:</label>
+              <select id="status-{{montagem.id}}" class="status-change-select" [(ngModel)]="montagem.status" (change)="onCardStatusChange(montagem)">
+                <option *ngFor="let status of statusOptions.slice(1)" [value]="status">{{ status }}</option>
+              </select>
+            </div>
+            <div class="action-buttons">
+              <button class="edit-button" (click)="onEdit(montagem.id)">Editar</button>
+              <button class="delete-button" (click)="onDelete(montagem.id)">Excluir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-new-montage-form *ngIf="showNewMontageModal" (closeModal)="onCloseNewMontageModal()"></app-new-montage-form>
+
+  <app-edit-montage-form *ngIf="showEditMontageModal" [montage]="montageToEdit" (closeModal)="onCloseEditMontageModal()" (montageUpdated)="onMontageEdited($event)"></app-edit-montage-form>
+</div>

@@ -1,0 +1,335 @@
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #f0f2f5; 
+}
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f0f2f5; 
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  font-size: 2.5em; 
+  margin-right: 10px;
+  color: #ffc107; 
+}
+
+.header-title {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  letter-spacing: 1px;
+}
+
+.main-content {
+  padding: 20px 30px;
+  flex-grow: 1; 
+}
+
+.controls-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap; 
+  gap: 15px; 
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.section-title {
+  font-size: 1.8em;
+  color: #333;
+  margin: 0;
+}
+
+.status-filter {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  background-color: #ffffff;
+  cursor: pointer;
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2C197.9L159.2%2C69.2c-3.7-3.7-9.7-3.7-13.4%2C0L5.4%2C197.9c-3.7%2C3.7-3.7%2C9.7%2C0%2C13.4l13.4%2C13.4c3.7%2C3.7%2C9.7%2C3.7%2C13.4%2C0l113.8-113.8l113.8%2C113.8c3.7%2C3.7%2C9.7%2C3.7%2C13.4%2C0l13.4-13.4C290.7%2C207.6%2C290.7%2C201.6%2C287%2C197.9z%22%2F%3E%3C%2Fsvg%3E'); /* Seta customizada */
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 12px auto;
+}
+
+.new-montagem-button {
+  background-color: #2196f3; /* Azul */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.new-montagem-button:hover {
+  background-color: #1976d2;
+  transform: translateY(-2px);
+}
+
+.montages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Layout responsivo em grid */
+  gap: 25px;
+}
+
+.montage-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden; /* Garante que a imagem não vaze */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.montage-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image-placeholder {
+  width: 100%;
+  height: 200px; /* Altura fixa para o placeholder da imagem */
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Garante que a imagem se ajuste */
+}
+
+.card-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cobre a área sem distorcer */
+}
+
+.card-content {
+  padding: 15px;
+  position: relative; /* Para posicionar a tag de status */
+}
+
+.card-status-tag {
+  position: absolute;
+  top: -10px; /* Ajuste para ficar um pouco acima do card */
+  right: 15px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-size: 1.4em;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.card-description {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.card-progress {
+  margin-bottom: 15px;
+}
+
+.progress-text {
+  font-size: 0.85em;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.progress-bar-container {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+}
+
+.progress-percentage {
+  font-size: 0.8em;
+  color: #555;
+  display: block;
+  margin-top: 5px;
+  text-align: right;
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: column; /* Coloca os grupos em coluna */
+  gap: 15px; /* Espaçamento entre os grupos de ações */
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.card-image-placeholder {
+  width: 100%;
+  height: 200px; /* Altura fixa para o placeholder da imagem */
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Garante que a imagem se ajuste */
+}
+
+.responsive-image { /* Nova classe para a imagem */
+  max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+  height: auto;    /* Mantém a proporção da imagem */
+  display: block;  /* Remove espaço extra abaixo da imagem */
+}
+
+
+.status-change-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-change-group label {
+  font-size: 0.9em;
+  color: #555;
+  font-weight: bold;
+}
+
+.status-change-select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9em;
+  background-color: #ffffff;
+  cursor: pointer;
+  flex-grow: 1; /* Permite que o select ocupe o espaço disponível */
+  appearance: none; /* Remove a seta padrão do select */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2C197.9L159.2%2C69.2c-3.7-3.7-9.7-3.7-13.4%2C0L5.4%2C197.9c-3.7%2C3.7-3.7%2C9.7%2C0%2C13.4l13.4%2C13.4c3.7%2C3.7%2C9.7%2C3.7%2C13.4%2C0l113.8-113.8l113.8%2C113.8c3.7%2C3.7%2C9.7%2C3.7%2C13.4%2C0l13.4-13.4C290.7%2C207.6%2C290.7%2C201.6%2C287%2C197.9z%22%2F%3E%3C%2Fsvg%3E'); /* Seta customizada */
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 12px auto;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end; /* Alinha os botões à direita */
+}
+
+.edit-button, .delete-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button {
+  background-color: #007bff; /* Azul para Editar */
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+.delete-button {
+  background-color: #dc3545; /* Vermelho para Excluir */
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+  }
+
+  .header-right {
+    margin-top: 10px;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .controls-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-group {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .status-filter {
+    width: 100%;
+  }
+
+  .new-montagem-button {
+    width: 100%;
+  }
+
+  .montages-grid {
+    grid-template-columns: 1fr; /* Uma coluna em telas menores */
+  }
+
+  .action-buttons {
+    justify-content: center; /* Centraliza botões em telas pequenas */
+  }
+}
